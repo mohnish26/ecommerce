@@ -19,7 +19,7 @@ const Cart = () => {
             <div className="md:w-50 md:min-w-52 md:h-50 w-full rounded">
               <img
                 src="https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?cs=srgb&dl=pexels-craig-dennis-205421.jpg&fm=jpg&h=400&w=600&fit=crop"
-                className="rounded-2xl"
+                alt="product"className="rounded-2xl"
               />
             </div>
 
