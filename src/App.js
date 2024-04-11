@@ -8,6 +8,7 @@ import Mystate from "./context/data/Mystate";
 import Login from "./pages/registration/Login";
 import Signup from "./pages/registration/Signup";
 import Productinfo from "./pages/productinfo/Productinfo";
+import Dasboard from "./pages/admin/dasboard/Dasboard";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/*" element={<Nopage />} />
             <Route path="/product/:id" element={<Productinfo />} />
+            <Route path="/dashboard" element={<Dasboard/>} />
           </Routes>
         </Router>
       </Mystate>
