@@ -9,21 +9,26 @@ import Login from "./pages/registration/Login";
 import Signup from "./pages/registration/Signup";
 import Productinfo from "./pages/productinfo/Productinfo";
 import Dasboard from "./pages/admin/dasboard/Dasboard";
+import Addproduct from "./pages/admin/pages/Addproduct";
+import Updateproduct from "./pages/admin/pages/Updateproduct";
 
 function App() {
   return (
-    <main className="">
+    <main>
       <Mystate>
         <Router>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/order" element={<Order />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/*" element={<Nopage />} />
-            <Route path="/product/:id" element={<Productinfo />} />
-            <Route path="/dashboard" element={<Dasboard/>} />
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/cart" element={<Cart />} />
+            <Route exact path="/dashboard" element={<Dasboard/>} />
+            <Route exact path="/order" element={<Order />} />
+            <Route exact path="/login" element={<Login />} />
+            <Route exact path="/signup" element={<Signup />} />
+            <Route  path="/product/:id" element={<Productinfo />} />
+            <Route exact path="/addproduct" element={<Addproduct/>} />
+            <Route exact path="/updateproduct" element={<Updateproduct/>}/>
+            <Route  path="/*" element={<Nopage />} />
+            
           </Routes>
         </Router>
       </Mystate>

@@ -31,7 +31,7 @@ const Navbar = () => {
       <div>
         <ul className="flex sm:gap-10 gap-4 sm:text-3xl text-lg text-center items-center">
           <li>
-            <NavLink to="like">
+            <NavLink to="/like">
               <FcLike />
             </NavLink>
           </li>
@@ -42,7 +42,7 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="dashboard">
+            <NavLink to="/dashboard">
               <CgProfile />
             </NavLink>
           </li>

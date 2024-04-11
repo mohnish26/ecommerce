@@ -4,12 +4,14 @@ import { MdAddShoppingCart } from "react-icons/md";
 import { TbPaperBag } from "react-icons/tb";
 import Layout from "../../../components/layout/Layout";
 import myContext from "../../../context/data/Mycontext";
+import Dashboardtabs from "./Dashboardtabs";
 
 const Dasboard = () => {
   const response = useContext(myContext);
   const { mode } = response;
   return (
     <Layout>
+      <div className="flex flex-col">
       <div
         className="flex md:flex-row flex-col justify-between lg:p-20 md:p-10 p-5  text-center gap-5"
         style={{ color: mode === false ? "white" : "" }}
@@ -29,7 +31,11 @@ const Dasboard = () => {
           <span className="text-2xl font-semibold">20</span>
           <p>Total User</p>
         </div>
+        
       </div>
+      <Dashboardtabs/>
+      </div>
+    
     </Layout>
   );
 };

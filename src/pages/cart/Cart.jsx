@@ -43,7 +43,7 @@ const Cart = () => {
               </div>
               <div>
                 <button className="lg:text-2xl md:text-xl">
-                  <FaRegTrashAlt />
+                  <FaRegTrashAlt  className="text-red-600"/>
                 </button>
               </div>
             </div>
