@@ -11,6 +11,8 @@ import Productinfo from "./pages/productinfo/Productinfo";
 import Dasboard from "./pages/admin/dasboard/Dasboard";
 import Addproduct from "./pages/admin/pages/Addproduct";
 import Updateproduct from "./pages/admin/pages/Updateproduct";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -31,6 +33,7 @@ function App() {
             
           </Routes>
         </Router>
+        <ToastContainer/>
       </Mystate>
     </main>
   );

@@ -42,7 +42,7 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard">
+            <NavLink to="/login">
               <CgProfile />
             </NavLink>
           </li>
