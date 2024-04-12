@@ -1,23 +1,17 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext} from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 import { MdOutlineProductionQuantityLimits } from "react-icons/md";
 import { FaUser, FaCartPlus } from "react-icons/fa";
-import { AiFillShopping, AiFillPlusCircle, AiFillDelete } from "react-icons/ai";
+import { AiFillShopping} from "react-icons/ai";
 import myContext from "../../../context/data/Mycontext";
 
 function DashboardTab() {
   const context = useContext(myContext);
   const { mode } = context;
-  let [isOpen, setIsOpen] = useState(false);
+ 
 
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  function openModal() {
-    setIsOpen(true);
-  }
+  
   return (
     <>
       <div className="container mx-auto">
