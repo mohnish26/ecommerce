@@ -7,9 +7,18 @@ import { CiSearch } from "react-icons/ci";
 import { MdDarkMode } from "react-icons/md";
 import myContext from "../../context/data/Mycontext";
 import { MdOutlineWbSunny } from "react-icons/md";
+import { RiLogoutCircleLine } from "react-icons/ri";
+import { IoIosLogIn } from "react-icons/io";
 const Navbar = () => {
   const context = useContext(myContext);
   const { mode, toggel } = context;
+
+  const user = localStorage.getItem('user')
+
+  const logout =() =>{
+    localStorage.clear('user')
+    window.location.href = "/"
+  }
 
   return (
     <div className=" drop-shadow-lg flex justify-between bg-amber-400 items-center p-3 w-full">
@@ -22,8 +31,18 @@ const Navbar = () => {
           className=" w-3/4 p-2 outline-none rounded-l-lg"
           placeholder="Product.."
           type="search"
+          style={{
+            backgroundColor: mode === false ? "#282c34" : "",
+            color: mode === false ? "grey" : "",
+          }}
         />
-        <button className="sm:text-2xl text-base bg-white p-2 rounded-r-lg">
+        <button
+          className="sm:text-2xl text-base bg-white p-2 rounded-r-lg"
+          style={{
+            backgroundColor: mode === false ? "#282c34" : "",
+            color: mode === false ? "grey" : "",
+          }}
+        >
           <CiSearch />
         </button>
       </div>
@@ -41,10 +60,17 @@ const Navbar = () => {
               <LuShoppingCart />
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/login">
+          
+            {
+              user?.user?.email === 'admin@admin.com' ? <li><NavLink to="/dashboard">
               <CgProfile />
-            </NavLink>
+            </NavLink> </li>: ""
+            }
+          
+          <li className="flex items-center">
+            {
+              user?  <button onClick={logout}><RiLogoutCircleLine className="text-red-600"/> </button>: <NavLink to='/login'><IoIosLogIn className=" font-bold text-green-600"/></NavLink>
+            }
           </li>
           <li className="items-center ">
             <button onClick={toggel}>

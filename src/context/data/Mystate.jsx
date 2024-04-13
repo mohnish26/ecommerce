@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import MyContext from './Mycontext'
+import Loader from '../../loader/Loader'
 
 const Mystate = (props) => {
 
     const [mode, setMode] = useState(true)
+    const [loading, setLoading] = useState(false)
     
     
     const toggel = () => {
@@ -22,8 +24,9 @@ const Mystate = (props) => {
 
     }
 
+   
   return (
-    <MyContext.Provider value={{mode,toggel}}>
+    <MyContext.Provider value={{mode,toggel,loading, setLoading}}>
         {props.children}
     </MyContext.Provider>
   )

@@ -1,17 +1,23 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { auth, firestore } from "../../firebase/Firebaseconfig";
 import { Timestamp, addDoc, collection } from "firebase/firestore";
+import myContext from "../../context/data/Mycontext";
+import Loader from "../../loader/Loader";
 
 const Signup = () => {
+  const response = useContext(myContext);
+  const { loading, setLoading } = response;
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpass, setConfirmpass] = useState("");
 
   const submit = async () => {
+    setLoading(true);
     if (
       name.trim().length < 3 ||
       name.trim() === "" ||
@@ -36,6 +42,7 @@ const Signup = () => {
 
       const userRef = collection(firestore, "users");
       await addDoc(userRef, user);
+      setLoading(false);
       toast.success("Signup succesfull");
 
       setName("");
@@ -43,12 +50,14 @@ const Signup = () => {
       setPassword("");
       setConfirmpass("");
     } catch (error) {
+      setLoading(false);
       return toast.error("something went wrong");
     }
   };
 
   return (
     <div className="flex h-screen justify-center items-center  ">
+      {loading && <Loader />}
       <div className=" flex flex-col items-center justify-center gap-10 bg-neutral-700  md:p-5 p-5 rounded-xl">
         <h2 className="text-white font-semibold text-5xl">Signup</h2>
         <div className="flex flex-col gap-2 text-2xl">
